@@ -1,0 +1,6 @@
+<%= form_for(@message) do |f| %>
+    <label>Titulo</label><%= f.text_field :title %>
+    <label>Clave Secreta</label><%= f.text_field :secret_key %><br>
+    <label>Mensaje</label><%= f.text_area :content %><br>
+    <%= f.submit "Create" %>
+<% end %>
