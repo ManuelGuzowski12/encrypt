@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'messages/new' => 'messages#new'
   get 'messages/:id' => 'messages#show'
   post 'messages' => 'messages#create'
+  get 'error' => 'decrypt#index'
+  get 'decrypt' => 'decrypt#show'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'

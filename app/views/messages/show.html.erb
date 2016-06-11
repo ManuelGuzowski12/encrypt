@@ -1,3 +1,9 @@
 
   <h2><%= @message.title %><br>
   <p><%= @message.content %>
+  <%= form_tag("/decrypt", method: "get") do %>
+    <%= label_tag(:secret_key, "Ingrese clave secreta:") %>
+    <%= text_field_tag 'message[secret_key]' %>
+    <%= hidden_field(:message, :id) %>
+    <%= submit_tag("Decrypt") %>
+  <% end %>
