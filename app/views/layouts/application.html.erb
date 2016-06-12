@@ -5,30 +5,41 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+      body {
+         padding-top: 70px;
+         font-family: Georgia, Times, serif;
+         background-color: #dfe3ee;
+         width: 940px;}
+  </style>
 </head>
 <body>
   <div class="header">
-        <div class="container">
-          <%= link_to root_path do %>
-            <img src="" width="0" height="0">
-          <% end %>
-
-          <div class="nav pull-right">
-            <% if current_user %>
-              <ul>
-                <li><%= current_user.email %></li>
-                <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-              </ul>
-            <% else %>
-              <ul>
-                <li><%= link_to "Login", 'login' %></a></li>
-                <li><%= link_to "Signup", 'signup' %></a></li>
-              </ul>
-            <% end %>
-          </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+          </a>
         </div>
+          <% if current_user %>
+            <ul class="nav nav-pills navbar-right">
+              <li role="presentation"><a href=""><%= current_user.email %></a></li>
+              <li role="presentation"><%= link_to "Log out", logout_path, method: "delete" %></li>
+            </ul>
+          <% else %>
+            <ul class="nav nav-pills navbar-right">
+              <li role="presentation"><%= link_to "Login", 'login' %></a></li>
+              <li role="presentation"><%= link_to "Signup", 'signup' %></a></li>
+            </ul>
+          <% end %>
       </div>
-<%= yield %>
+    </nav>
+   </div>
+   <div class="container">
+     <%= yield %>
+   </div>
 
 </body>
 </html>

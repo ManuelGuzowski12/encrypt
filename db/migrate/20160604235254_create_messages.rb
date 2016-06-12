@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration
       t.string :title
       t.string :secret_key
       t.string :content
+      t.string :secret
       t.timestamps
     end
   end
