@@ -24,9 +24,8 @@ class MessagesController < ApplicationController
      salt  = SecureRandom.random_bytes(64)
      key = ActiveSupport::KeyGenerator.new(params[:message][:secret_key]).generate_key(salt)
      encrypt = ActiveSupport::MessageEncryptor.new(key)
-     secret = params[:message][:content]
+     params[:message][:secret] = params[:message][:content]
      params[:message][:content] = encrypt.encrypt_and_sign(params[:message][:content])
-     params[:message][:secret] = secret
-     params.require(:message).permit(:title, :secret_key, :content, :secret)
+     params.require(:message).permit(:title,:content, :secret_key, :secret)
    end
 end

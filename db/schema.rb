@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20160604235254) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "title",      limit: 255
-    t.string   "secret_key", limit: 255
     t.string   "content",    limit: 255
+    t.string   "secret_key", limit: 255
     t.string   "secret",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"

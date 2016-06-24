@@ -2,5 +2,5 @@ development:
   adapter: mysql2
   database: encrypt
   username: root
-  password:
+  password: 12345
   host: localhost

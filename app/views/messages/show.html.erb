@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
-  <h2><%= @message.title %><br>
-  <p><%= @message.content %>
+  <h2><%= @message.title %></h2><br>
+  <p><%= @message.content %></p>
   <%= form_tag("/decrypt", method: "post") do %>
     <%= label_tag(:secret_key, "Ingrese clave secreta:") %>
     <%= text_field_tag 'message[secret_key]' %>
